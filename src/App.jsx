@@ -31,7 +31,7 @@ const App = () => {
     if (typeof window !== 'undefined') window.localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
   }, [isDarkMode]);
 
-  // Carrega histórico do Supabase ou API local
+  // Carrega histórico do Neon PostgreSQL
   useEffect(() => {
     if (!isAuthenticated) return;
     const loadInspections = async () => {
@@ -52,7 +52,7 @@ const App = () => {
     loadInspections();
   }, [isAuthenticated]);
 
-  // Salvar inspeção no Supabase ou API local
+  // Salvar inspeção no Neon PostgreSQL
   const handleSaveToHistory = useCallback(async (data) => {
     try {
       const inspection = {
@@ -103,7 +103,7 @@ const App = () => {
     }
   }, [currentUser]);
 
-  // Deletar inspeção do Supabase ou API local
+  // Deletar inspeção do Neon PostgreSQL
   const handleDeleteInspection = useCallback(async (id) => {
     try {
       const { error } = await inspectionsAPI.delete(id);
@@ -129,7 +129,7 @@ const App = () => {
 
   const handleDeleteVehicle = useCallback((v) => setSavedVehicles(p => p.filter(x => x !== v)), []);
 
-  // Autenticação via API local
+  // Autenticação via API Neon
   const handleLogin = useCallback(async ({ username, password }, onSuccess, onError) => {
     try {
       const { data, error } = await authAPI.login(username, password);

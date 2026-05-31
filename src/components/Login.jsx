@@ -84,7 +84,7 @@ const Login = ({ onLogin }) => {
           </button>
           <div className="mt-6 text-center text-xs text-slate-400">
             <p>AutoCheck © 2024</p>
-            <p className="mt-2 text-slate-500">Usando Supabase PostgreSQL</p>
+            <p className="mt-2 text-slate-500">Usando Neon PostgreSQL</p>
           </div>
         </form>
       </div>
